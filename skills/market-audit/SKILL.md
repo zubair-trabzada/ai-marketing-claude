@@ -1,3 +1,8 @@
+---
+name: market-audit
+description: "Full marketing audit engine that launches parallel subagents to evaluate SEO, content strategy, conversion optimization, competitive positioning, and growth opportunities, then aggregates results into a unified client-ready MARKETING-AUDIT.md report. Use when you need a comprehensive scored marketing audit of a website covering technical SEO, social proof, messaging clarity, funnel effectiveness, and strategic recommendations with revenue impact estimates."
+---
+
 # Marketing Audit Orchestrator
 
 You are the full marketing audit engine for `/market audit <url>`. You launch 5 parallel subagents, aggregate their results, and produce a unified MARKETING-AUDIT.md report that is client-ready and revenue-focused.
@@ -18,16 +23,14 @@ Use `WebFetch` to retrieve the homepage and up to 5 key interior pages (pricing,
 
 ### 1.2 Detect Business Type
 
-Classify the business into one of these categories. This classification shapes every subagent's analysis focus:
+Classify the business into one of these categories to shape each subagent's analysis focus:
 
-| Business Type | Detection Signals | Analysis Focus |
-|---------------|-------------------|----------------|
-| **SaaS/Software** | Free trial CTA, pricing tiers, feature pages, "login" link, API docs | Trial-to-paid conversion, onboarding, feature differentiation, churn signals |
-| **E-commerce** | Product listings, cart, checkout, product categories, reviews | Product pages, cart abandonment, upsells, reviews, AOV optimization |
-| **Agency/Services** | Case studies, portfolio, "work with us", testimonials, contact forms | Trust signals, case studies, positioning, lead qualification |
-| **Local Business** | Address, phone number, hours, "near me", Google Maps embed | Local SEO, Google Business Profile, reviews, NAP consistency |
-| **Creator/Course** | Lead magnets, email capture, course listings, community links | Email capture rate, funnel design, testimonials, content quality |
-| **Marketplace** | Two-sided messaging, buyer/seller flows, listing pages | Supply/demand balance, trust mechanisms, network effects |
+- **SaaS/Software** — Signals: trial CTAs, pricing tiers, login, API docs. Focus: trial-to-paid conversion, onboarding, feature differentiation.
+- **E-commerce** — Signals: product listings, cart, checkout, reviews. Focus: cart abandonment, upsells, AOV optimization.
+- **Agency/Services** — Signals: case studies, portfolio, contact forms. Focus: trust signals, positioning, lead qualification.
+- **Local Business** — Signals: address, phone, hours, Maps embed. Focus: local SEO, Google Business Profile, NAP consistency.
+- **Creator/Course** — Signals: lead magnets, email capture, course listings. Focus: funnel design, email capture rate, content quality.
+- **Marketplace** — Signals: two-sided messaging, buyer/seller flows. Focus: supply/demand balance, trust mechanisms.
 
 ### 1.3 Identify Key Pages
 
@@ -156,26 +159,9 @@ Marketing Score = (
 
 Collect all recommendations from subagents and classify them:
 
-**Quick Wins** (implement in < 1 week, low effort, high impact):
-- Copy changes to headlines and CTAs
-- Adding missing meta descriptions
-- Adding trust signals near CTAs
-- Fixing broken links or images
-- Adding urgency or social proof
-
-**Strategic Recommendations** (1-4 weeks, medium effort, high impact):
-- Redesigning pricing page
-- Building comparison/alternatives pages
-- Creating lead magnets or content upgrades
-- Email sequence implementation
-- Landing page A/B test designs
-
-**Long-Term Initiatives** (1-3 months, high effort, transformative impact):
-- Content marketing strategy overhaul
-- SEO content gap campaign
-- Funnel redesign
-- Brand repositioning
-- New growth channel development
+- **Quick Wins** (< 1 week, low effort): headline/CTA copy changes, missing meta descriptions, trust signals near CTAs, broken link fixes, urgency/social proof additions.
+- **Strategic Recommendations** (1-4 weeks, medium effort): pricing page redesign, comparison pages, lead magnets, email sequences, A/B test designs.
+- **Long-Term Initiatives** (1-3 months, high effort): content strategy overhaul, SEO gap campaigns, funnel redesign, brand repositioning, new growth channels.
 
 ### 3.3 Revenue Impact Estimates
 
@@ -190,13 +176,7 @@ Example:
   10,000 visitors x 0.5% conversion lift x $99 ARPU = $4,950/month
 ```
 
-Provide conservative, moderate, and aggressive estimates where possible. Use these qualifiers:
-
-| Impact Level | Monthly Revenue Lift | Confidence |
-|-------------|---------------------|------------|
-| High Impact | >$5,000/mo or >20% improvement | Based on clear evidence from audit |
-| Medium Impact | $1,000-$5,000/mo or 5-20% improvement | Based on industry benchmarks |
-| Low Impact | <$1,000/mo or <5% improvement | Incremental optimization |
+Provide conservative, moderate, and aggressive estimates where possible. Impact levels: **High** (>$5K/mo or >20% improvement, evidence-based), **Medium** ($1-5K/mo or 5-20%, benchmark-based), **Low** (<$1K/mo or <5%, incremental).
 
 ### 3.4 Competitor Comparison Table
 

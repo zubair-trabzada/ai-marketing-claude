@@ -1,12 +1,11 @@
+---
+name: market-competitors
+description: "Competitive intelligence engine for market research and competitor analysis. Use when the user needs to benchmark against competitors, perform SWOT analysis, map the competitive landscape, compare features or pricing, identify positioning gaps, or develop differentiation strategy. Produces a structured COMPETITOR-REPORT.md with actionable recommendations."
+---
+
 # Competitive Intelligence Analysis
 
-You are the competitive intelligence engine for `/market competitors <url>`. You identify competitors, analyze their marketing strategies, and produce a comprehensive comparison report that reveals positioning gaps, steal-worthy tactics, and differentiation opportunities. Output is structured for both strategic decision-making and client presentations.
-
-## When This Skill Is Invoked
-
-The user runs `/market competitors <url>`. Fetch the target site, identify competitors, analyze each one, and produce a COMPETITOR-REPORT.md with actionable intelligence.
-
----
+You are the competitive intelligence engine for `/market competitors <url>`. Fetch the target site, identify competitors, analyze their marketing strategies, and produce a COMPETITOR-REPORT.md with positioning gaps, steal-worthy tactics, and differentiation opportunities.
 
 ## Phase 1: Competitor Identification
 
@@ -14,56 +13,28 @@ The user runs `/market competitors <url>`. Fetch the target site, identify compe
 
 Identify competitors across three tiers:
 
-| Category | Definition | How to Find | Count |
-|----------|-----------|-------------|-------|
-| **Direct Competitors** | Same product, same audience, same market | Search for product category keywords, check who ranks | 3-5 |
-| **Indirect Competitors** | Different product, same problem solved | Search for the problem being solved, check alternative approaches | 2-3 |
-| **Aspirational Competitors** | Market leaders the brand aspires to become | Industry leaders, category creators, well-known brands | 1-2 |
+| Category | Definition | Count |
+|----------|-----------|-------|
+| **Direct** | Same product, same audience, same market | 3-5 |
+| **Indirect** | Different product, same problem solved | 2-3 |
+| **Aspirational** | Market leaders the brand aspires to become | 1-2 |
 
-### 1.2 Competitor Discovery Methods
+### 1.2 Discovery Methods
 
-Use multiple methods to identify competitors:
+Combine these approaches to build the competitor list:
 
-**Method 1: Keyword-Based Discovery**
-- Search for the target site's primary keywords
-- Note which companies rank on page 1
-- Search for "[product category] software/service/tool"
-- Search for "[target brand] alternatives"
-- Search for "[target brand] vs"
+- **Keyword search:** "[product category] software/tool", "[brand] alternatives", "[brand] vs"
+- **Site analysis:** Comparison pages, integration partners, blog competitor mentions
+- **Review platforms:** G2, Capterra, Trustpilot category listings and "Compare" features
+- **Community:** Reddit recommendations, Twitter/X discussions, LinkedIn audience overlap
 
-**Method 2: Site-Based Discovery**
-- Look for comparison pages on the target site
-- Check footer links for industry associations
-- Look for "integrations" pages that mention similar tools
-- Check the target site's blog for competitor mentions
+### 1.3 Data Collection
 
-**Method 3: Review Platform Discovery**
-- Search G2, Capterra, Trustpilot for the product category
-- Note top-rated competitors in the same category
-- Check "Compare" features on review sites
-
-**Method 4: Social and Community Discovery**
-- Search Reddit for "[product category] recommendations"
-- Check Twitter/X for conversations about the product category
-- Look at LinkedIn for companies followed by the target's audience
-
-### 1.3 Automated Data Collection
-
-Use the Python script at `scripts/competitor_scanner.py` for automated data collection when available:
-
+Use `scripts/competitor_scanner.py` if available:
 ```
 python scripts/competitor_scanner.py --url [competitor-url] --output json
 ```
-
-The script can collect:
-- Homepage content and metadata
-- Pricing page data (if public)
-- Blog post count and recent topics
-- Social media profile links and follower counts
-- Technology stack detection
-- Page speed metrics
-
-If the script is not available, use `WebFetch` to manually collect this data for each competitor.
+Otherwise use `WebFetch` to collect homepage content, metadata, pricing, blog topics, social profiles, and tech stack for each competitor.
 
 ---
 
@@ -71,290 +42,97 @@ If the script is not available, use `WebFetch` to manually collect this data for
 
 ### 2.1 Website and Messaging Analysis
 
-For each competitor, analyze:
+For each competitor, capture:
 
-**Messaging:**
-| Element | What to Capture | Why It Matters |
-|---------|----------------|----------------|
-| **Headline** | Exact H1 text | Reveals positioning and value prop |
-| **Subheadline** | Supporting text | Shows secondary messaging angle |
-| **Value proposition** | Core promise | Identifies positioning territory |
-| **Target audience** | Who they speak to | Reveals market segment focus |
-| **Key differentiator** | What sets them apart | Shows competitive moat claims |
-| **Tone of voice** | Casual/formal/technical | Reveals brand personality choices |
-| **Social proof** | Type and quantity | Shows credibility strategy |
+| Element | What to Capture |
+|---------|----------------|
+| **Headline / Subheadline** | Exact H1 + supporting text — reveals positioning |
+| **Value proposition** | Core promise and positioning territory |
+| **Target audience** | Who they speak to — market segment focus |
+| **Key differentiator** | Competitive moat claims |
+| **Tone of voice** | Casual / formal / technical |
+| **Social proof** | Type, quantity, and credibility strategy |
 
-**Positioning Map:**
-Plot each competitor on two axes:
-- X-axis: Perceived simplicity ←→ Perceived power
-- Y-axis: Perceived affordability ←→ Perceived premium
-
-```
-POSITIONING MAP
-===============
-                    PREMIUM
-                       |
-                       |
-        [Competitor C] |  [Aspirational]
-                       |
-  SIMPLE ──────────────┼────────────── POWERFUL
-                       |
-        [Target]       |  [Competitor A]
-                       |
-                       |
-                    BUDGET
-```
-
-Adjust axes based on what matters most in the specific industry.
+**Positioning Map:** Plot competitors on two industry-relevant axes (e.g., Simple-Powerful vs Budget-Premium). Adjust axes to what matters most in the specific market.
 
 ### 2.2 Pricing Comparison
 
-Build a detailed pricing matrix:
+Build a pricing matrix covering: free plan availability, tier prices, enterprise pricing, trial length, annual discount, pricing model (per-user / usage / flat / tiered), and transparency.
 
-```markdown
-| Feature/Plan | [Target] | Competitor A | Competitor B | Competitor C |
-|-------------|----------|-------------|-------------|-------------|
-| Free Plan | Yes/No | Yes/No | Yes/No | Yes/No |
-| Starter Price | $X/mo | $X/mo | $X/mo | $X/mo |
-| Pro Price | $X/mo | $X/mo | $X/mo | $X/mo |
-| Enterprise | Custom | Custom | $X/mo | Custom |
-| Free Trial | X days | X days | X days | X days |
-| Annual Discount | X% | X% | X% | X% |
-| Per-User Pricing | Yes/No | Yes/No | Yes/No | Yes/No |
-| Usage Limits | [detail] | [detail] | [detail] | [detail] |
-```
-
-**Pricing Strategy Assessment:**
-- Is the target priced above, below, or at market average?
-- Is pricing transparent or hidden (requiring sales calls)?
-- What pricing model is used (per-user, per-usage, flat-rate, tiered)?
-- Are there pricing anchoring tactics being used?
-- Does the pricing page communicate value before showing numbers?
+Assess whether the target is above, below, or at market average and whether competitors use anchoring tactics or value-first presentation.
 
 ### 2.3 Feature Comparison Matrix
 
-Build a comprehensive feature comparison:
+Build a feature matrix using **Full / Partial / No / Beta** ratings across core, advanced, integration, and support categories. Highlight:
+- Target advantages (competitive moats)
+- Target gaps (vulnerabilities)
+- Unique-to-one features (potential differentiators)
 
-```markdown
-| Feature Category | Feature | [Target] | Comp A | Comp B | Comp C |
-|-----------------|---------|----------|--------|--------|--------|
-| Core | [Feature 1] | Full | Full | Partial | No |
-| Core | [Feature 2] | Full | Full | Full | Full |
-| Core | [Feature 3] | Partial | Full | No | Full |
-| Advanced | [Feature 4] | No | Full | No | Full |
-| Advanced | [Feature 5] | Full | No | Full | No |
-| Integration | [Feature 6] | Full | Full | No | Partial |
-| Support | [Feature 7] | Full | Partial | Full | Full |
-```
-
-Use: Full, Partial, No, or Beta to categorize.
-
-Highlight:
-- Features where the target has an advantage (competitive moats)
-- Features where the target has a gap (vulnerability)
-- Features unique to one competitor (potential differentiators)
-
-### 2.4 SEO Competition Analysis
+### 2.4 SEO and Content Analysis
 
 For each competitor, analyze:
+- **Content strategy:** Post volume, frequency, depth (shallow/medium/deep), formats (blog/video/podcast), key topics
+- **Keyword strategy:** Targeted keywords, ranking gaps where competitors rank but target does not, comparison/alternatives content
+- **Content gaps:** Topics competitors cover that the target does not, ranked by search intent
 
-**Content Strategy:**
-| Metric | [Target] | Comp A | Comp B | Comp C |
-|--------|----------|--------|--------|--------|
-| Blog posts (estimated) | X | X | X | X |
-| Publishing frequency | X/week | X/week | X/week | X/week |
-| Content depth | Shallow/Medium/Deep | | | |
-| Content types | Blog/Video/Podcast | | | |
-| Key topics | [list] | [list] | [list] | [list] |
+### 2.5 Social Media Presence
 
-**Keyword Strategy:**
-- What keywords is each competitor clearly targeting?
-- Where do multiple competitors rank but the target does not? (content gaps)
-- Are competitors creating comparison/alternatives content?
-- What long-tail keywords are competitors ranking for?
-
-**Content Gap Analysis:**
-List topics that competitors cover but the target does not:
-```
-CONTENT GAPS (Competitors Cover, Target Does Not):
-  1. [Topic] — covered by Comp A, B (high search intent)
-  2. [Topic] — covered by Comp A, C (medium search intent)
-  3. [Topic] — covered by Comp B (high search intent)
-  4. [Topic] — covered by all competitors (critical gap)
-```
-
-### 2.5 Social Media Presence Comparison
-
-| Platform | [Target] | Comp A | Comp B | Comp C |
-|----------|----------|--------|--------|--------|
-| LinkedIn followers | X | X | X | X |
-| Twitter/X followers | X | X | X | X |
-| Instagram followers | X | X | X | X |
-| YouTube subscribers | X | X | X | X |
-| TikTok followers | X | X | X | X |
-| Posting frequency | X/week | X/week | X/week | X/week |
-| Engagement rate | X% | X% | X% | X% |
-| Top content type | [type] | [type] | [type] | [type] |
+Compare across platforms (LinkedIn, Twitter/X, Instagram, YouTube, TikTok): follower counts, posting frequency, engagement rate, and top content types.
 
 ### 2.6 Review Mining
 
-Analyze reviews on third-party platforms (G2, Capterra, Trustpilot, Reddit):
-
-**For each competitor, extract:**
-- Overall rating (stars)
-- Number of reviews
-- Top 3 praised features (what customers love)
-- Top 3 complaints (what customers hate)
-- Common switching reasons (why customers leave)
-- Use cases mentioned most frequently
-
-**Review Intelligence Matrix:**
-```markdown
-| Competitor | Rating | Reviews | Top Praise | Top Complaint | Switch Reason |
-|-----------|--------|---------|-----------|---------------|--------------|
-| Comp A | 4.5/5 | 500+ | Easy to use | Limited integrations | Price increase |
-| Comp B | 4.2/5 | 200+ | Powerful features | Steep learning curve | Poor support |
-| Comp C | 3.8/5 | 100+ | Good value | Buggy | Better alternatives |
-```
+From G2, Capterra, Trustpilot, and Reddit, extract per competitor: overall rating, review count, top 3 praised features, top 3 complaints, common switching reasons, and frequent use cases.
 
 ---
 
 ## Phase 3: SWOT Analysis
 
-### 3.1 SWOT for Each Competitor
+### 3.1 Per-Competitor SWOT
 
-For each identified competitor, produce a SWOT:
+For each competitor, produce a SWOT with evidence-backed items:
+- **Strengths / Weaknesses:** Specific findings with supporting data
+- **Opportunities:** Target can exploit based on competitor weaknesses or market gaps
+- **Threats:** Competitor advantages to monitor
 
-```
-COMPETITOR: [Name]
-URL: [url]
+### 3.2 Aggregate Target SWOT
 
-STRENGTHS:
-  - [Specific strength with evidence]
-  - [Specific strength with evidence]
-  - [Specific strength with evidence]
-
-WEAKNESSES:
-  - [Specific weakness with evidence]
-  - [Specific weakness with evidence]
-  - [Specific weakness with evidence]
-
-OPPORTUNITIES (for the target to exploit):
-  - [Opportunity based on competitor weakness]
-  - [Opportunity based on market gap]
-  - [Opportunity based on unserved segment]
-
-THREATS (competitor advantages to watch):
-  - [Threat with potential impact]
-  - [Threat with potential impact]
-  - [Threat with potential impact]
-```
-
-### 3.2 Aggregate SWOT for the Target
-
-Combine all competitor intelligence into a single SWOT for the target brand:
-
-- **Strengths:** Where the target outperforms all or most competitors
-- **Weaknesses:** Where the target lags behind all or most competitors
-- **Opportunities:** Gaps in the market no competitor is addressing well
+Synthesize all competitor intelligence into a single SWOT for the target:
+- **Strengths:** Where target outperforms most competitors
+- **Weaknesses:** Where target lags behind most competitors
+- **Opportunities:** Market gaps no competitor addresses well
 - **Threats:** Areas where competitors are significantly stronger
 
 ---
 
 ## Phase 4: Strategic Recommendations
 
-### 4.1 "Steal-Worthy" Tactics
+### 4.1 Steal-Worthy Tactics
 
-Identify specific marketing tactics from competitors worth adopting:
+Identify 5-10 proven marketing tactics from competitors worth adopting. For each: describe the tactic, why it works, implementation steps, estimated effort (Low/Medium/High), and expected impact.
 
-```
-STEAL-WORTHY TACTICS
-====================
+Focus on tactics that are proven, adaptable, and currently underutilized by the target.
 
-1. [Competitor A] — [Tactic: e.g., "Interactive pricing calculator"]
-   Why it works: [explanation]
-   How to implement: [specific steps for the target]
-   Estimated effort: [Low/Medium/High]
-   Expected impact: [Low/Medium/High]
+### 4.2 Differentiation Strategy
 
-2. [Competitor B] — [Tactic: e.g., "Customer success story video series"]
-   Why it works: [explanation]
-   How to implement: [specific steps]
-   Estimated effort: [Low/Medium/High]
-   Expected impact: [Low/Medium/High]
+Evaluate five differentiation angles and recommend the strongest:
 
-[Continue for 5-10 tactics]
-```
+1. **Category:** Can the target create or own a sub-category?
+2. **Audience:** Can the target own a segment competitors ignore?
+3. **Feature:** Is there a unique capability no competitor offers?
+4. **Philosophy:** Can the target differentiate on values or methodology?
+5. **Experience:** Can the target differentiate on support or community?
 
-Focus on tactics that are:
-- Proven (working for the competitor)
-- Adaptable (can be customized for the target)
-- Underutilized (the target is not currently doing this)
-
-### 4.2 Messaging Differentiation Strategy
-
-Based on the competitive analysis, recommend how the target should differentiate:
-
-**Differentiation Framework:**
-1. **Category:** Can the target create or own a sub-category? (e.g., "the [specific attribute] [category]")
-2. **Audience:** Can the target own a specific audience segment competitors ignore?
-3. **Feature:** Is there a unique feature or capability no competitor offers?
-4. **Philosophy:** Can the target differentiate on values, approach, or methodology?
-5. **Experience:** Can the target differentiate on customer experience, support, or community?
-
-For each viable differentiation angle, provide:
-- Positioning statement
-- Headline recommendation
-- Supporting evidence or proof points
-- How it would manifest across the website
+For each viable angle, provide: positioning statement, headline recommendation, supporting proof points, and website manifestation.
 
 ### 4.3 Alternative Page Strategy
 
-Recommend creating "[Competitor] Alternative" pages:
+For each major competitor, outline a "[Target] vs [Competitor]" page with: comparison table, where target wins, where competitor wins (honesty builds trust), ideal customer profile, switching testimonials, migration guide, FAQ, and CTA.
 
-**For each major competitor, outline:**
-```
-PAGE: [Target Brand] vs [Competitor Name]
-URL: /vs/[competitor-name] or /alternatives/[competitor-name]
+These pages target high-intent "[competitor] alternatives" and "[target] vs [competitor]" searches.
 
-Headline: "Looking for a [Competitor] alternative? Here's why [X] teams chose [Target] instead."
+### 4.4 Switching Narratives
 
-Sections:
-  1. Quick comparison table (features, pricing, ratings)
-  2. Where [Target] wins (3-4 advantages with evidence)
-  3. Where [Competitor] wins (honest, builds trust)
-  4. Who [Target] is best for (ideal customer profile)
-  5. Customer switching stories (testimonials from switchers)
-  6. Migration guide or switching offer
-  7. FAQ about switching
-  8. CTA: "Try [Target] free" or "See how [Target] compares"
-```
-
-**SEO value:** These pages target high-intent search queries like "[competitor] alternatives" and "[target] vs [competitor]" which are bottom-of-funnel searches.
-
-### 4.4 Switching Narrative Development
-
-Create a compelling narrative for customers considering switching from each competitor:
-
-```
-SWITCHING NARRATIVE: [Competitor] → [Target]
-
-Why customers switch:
-  1. [Primary reason based on review mining]
-  2. [Secondary reason]
-  3. [Tertiary reason]
-
-Switching story template:
-  "Like many [audience], [customer name] started with [Competitor] because
-   [initial appeal]. But after [time/event], they realized [pain point].
-   After switching to [Target], they [specific result with numbers]."
-
-Switching offer:
-  - Free migration assistance
-  - Extended trial for [Competitor] users
-  - Matching or discounting pricing
-  - Dedicated onboarding for switchers
-```
+For each major competitor, develop: top switching reasons (from review mining), a switching story template, and a switching offer (free migration, extended trial, matched pricing, dedicated onboarding).
 
 ---
 
@@ -362,136 +140,35 @@ Switching offer:
 
 ### 5.1 Competitive Monitoring Checklist
 
-Recommend ongoing monitoring activities:
-
-- [ ] Set Google Alerts for each competitor name
-- [ ] Follow competitors on social media platforms
-- [ ] Subscribe to competitor newsletters
-- [ ] Check competitor pricing pages monthly
-- [ ] Monitor competitor review sites quarterly
-- [ ] Track competitor content publishing (topics, frequency)
-- [ ] Watch for competitor product launches and feature updates
-- [ ] Monitor competitor job postings (reveals strategic priorities)
-- [ ] Track competitor ad spend and creative (use Meta Ad Library, Google Ads Transparency)
-- [ ] Review competitor backlink profiles quarterly
+Recommend ongoing monitoring: Google Alerts, social follows, newsletter subscriptions, monthly pricing checks, quarterly review monitoring, content tracking, product launch watching, job posting analysis, ad spend monitoring (Meta Ad Library, Google Ads Transparency), and quarterly backlink reviews.
 
 ### 5.2 Competitive Response Playbook
-
-Provide guidance on how to respond to competitor moves:
 
 | Competitor Move | Response Strategy | Timeline |
 |----------------|-------------------|----------|
 | Price cut | Emphasize value and quality, not price war | 1 week |
-| New feature launch | Assess relevance, communicate roadmap to customers | 2 weeks |
+| New feature launch | Assess relevance, communicate roadmap | 2 weeks |
 | Aggressive ad campaign | Double down on owned channels and retention | Ongoing |
 | Negative comparison content | Create factual, balanced comparison content | 1 week |
-| Major funding / acquisition | Reassure customers, emphasize stability and focus | 1-2 days |
-| Customer reviews / complaints | Monitor for opportunities, address shared concerns | Ongoing |
+| Major funding / acquisition | Reassure customers, emphasize stability | 1-2 days |
 
 ---
 
 ## Output Format: COMPETITOR-REPORT.md
 
-Write the full output to `COMPETITOR-REPORT.md`:
+Write the full output to `COMPETITOR-REPORT.md` with these sections:
 
-```markdown
-# Competitive Intelligence Report: [Target Brand]
-**URL:** [url]
-**Date:** [current date]
-**Competitors Analyzed:** [count]
-**Competitive Position: [Strong/Moderate/Weak]**
-
----
-
-## Executive Summary
-[3-4 paragraphs covering competitive landscape, target's position,
-biggest competitive advantage, biggest competitive threat, and
-top 3 strategic recommendations]
-
----
-
-## Competitor Overview
-
-### Direct Competitors
-[Summary table with name, URL, positioning, pricing, key differentiator]
-
-### Indirect Competitors
-[Summary table]
-
-### Aspirational Competitors
-[Summary table]
-
----
-
-## Detailed Competitor Profiles
-
-### [Competitor A Name]
-[Full analysis: messaging, pricing, features, SWOT, social presence, reviews]
-
-### [Competitor B Name]
-[Full analysis]
-
-[Repeat for each competitor]
-
----
-
-## Comparison Tables
-
-### Feature Comparison
-[Full feature matrix]
-
-### Pricing Comparison
-[Full pricing matrix]
-
-### Review Ratings
-[Review intelligence matrix]
-
-### Social Media Presence
-[Platform comparison table]
-
----
-
-## Positioning Map
-[Visual positioning map with explanation]
-
----
-
-## Content & SEO Gap Analysis
-[Content gaps, keyword opportunities, comparison page strategy]
-
----
-
-## SWOT Analysis — [Target Brand]
-[Aggregate SWOT based on competitive intelligence]
-
----
-
-## Strategic Recommendations
-
-### Steal-Worthy Tactics
-[5-10 tactics with implementation guidance]
-
-### Differentiation Strategy
-[Recommended positioning angles]
-
-### Alternative Pages to Create
-[Competitor vs pages with outlines]
-
-### Switching Narratives
-[Switching stories and offers for each major competitor]
-
----
-
-## Competitive Monitoring Plan
-[Ongoing monitoring checklist and response playbook]
-
----
-
-## Next Steps
-1. [Most critical competitive action]
-2. [Second priority]
-3. [Third priority]
-```
+1. **Header:** Target brand, URL, date, competitor count, competitive position (Strong/Moderate/Weak)
+2. **Executive Summary:** 3-4 paragraphs covering landscape, position, biggest advantage, biggest threat, top 3 recommendations
+3. **Competitor Overview:** Summary tables for direct, indirect, and aspirational competitors
+4. **Detailed Profiles:** Full analysis per competitor (messaging, pricing, features, SWOT, social, reviews)
+5. **Comparison Tables:** Feature matrix, pricing matrix, review ratings, social media presence
+6. **Positioning Map:** Visual map with explanation
+7. **Content & SEO Gap Analysis:** Gaps, keyword opportunities, comparison page strategy
+8. **SWOT Analysis:** Aggregate SWOT for the target
+9. **Strategic Recommendations:** Steal-worthy tactics, differentiation strategy, alternative pages, switching narratives
+10. **Monitoring Plan:** Checklist and response playbook
+11. **Next Steps:** Top 3 prioritized actions
 
 ---
 
@@ -504,19 +181,12 @@ Target: [name]
 Competitors Analyzed: [count]
 Competitive Position: [Strong/Moderate/Weak]
 
-Competitive Landscape:
-  Direct:      [Comp A] (Rating: X/5), [Comp B] (Rating: X/5)
-  Indirect:    [Comp C], [Comp D]
-  Aspirational: [Comp E]
-
 Key Findings:
   Biggest Advantage: [specific advantage]
   Biggest Threat: [specific threat]
   Biggest Opportunity: [specific opportunity]
 
-Feature Gaps: [X] features competitors have that target lacks
-Content Gaps: [X] topics competitors cover that target doesn't
-Pricing Position: [Above/At/Below] market average
+Feature Gaps: [X] | Content Gaps: [X] | Pricing: [Above/At/Below] market
 
 Top 3 Actions:
   1. [action]
@@ -530,8 +200,5 @@ Full report saved to: COMPETITOR-REPORT.md
 
 ## Cross-Skill Integration
 
-- If `MARKETING-AUDIT.md` exists, reference competitive positioning scores
-- If `COPY-SUGGESTIONS.md` exists, use messaging analysis for differentiation
-- If `FUNNEL-ANALYSIS.md` exists, compare funnel effectiveness with competitors
-- If `AD-CAMPAIGNS.md` exists, use competitor intelligence for ad angles
-- Suggest follow-up: `/market copy` for differentiated messaging, `/market ads` for competitive ad campaigns, `/market funnel` for conversion comparison
+- Reference `MARKETING-AUDIT.md`, `COPY-SUGGESTIONS.md`, `FUNNEL-ANALYSIS.md`, `AD-CAMPAIGNS.md` if they exist
+- Suggest follow-ups: `/market copy` for differentiated messaging, `/market ads` for competitive ad campaigns, `/market funnel` for conversion comparison

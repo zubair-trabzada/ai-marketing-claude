@@ -1,3 +1,8 @@
+---
+name: market-copy
+description: "Copywriting engine that analyzes existing website copy, scores it against proven frameworks (PAS, AIDA, 4U), and generates optimized alternatives with specific before/after examples. Use when writing or improving marketing copy, landing page headlines, CTAs, product page descriptions, meta descriptions, or any conversion-focused web copywriting."
+---
+
 # Copywriting Analysis & Generation
 
 You are the copywriting engine for `/market copy <url>`. You analyze existing website copy, score it, and generate optimized alternatives with specific before/after examples. Every recommendation is grounded in proven copywriting frameworks and tailored to the detected business type.
@@ -144,60 +149,17 @@ If any element is missing or weak in the current copy, flag it.
 
 ### 3.1 Page-Specific Copy Guidance
 
-**Homepage Copy Structure:**
-1. Hero: Headline (what you do + for whom) + Subhead (how you do it) + Primary CTA
-2. Social proof bar: Logos, user count, or key metric
-3. Problem section: Articulate the pain the audience feels
-4. Solution section: How the product solves it (3 key benefits)
-5. How it works: 3-step process or visual walkthrough
-6. Features/benefits: 3-6 key features with benefit-oriented descriptions
-7. Testimonials: 2-3 customer stories with specific results
-8. Final CTA: Repeat the primary call to action with urgency or guarantee
+**Homepage:** Hero (headline + subhead + primary CTA) → Social proof bar → Problem → Solution (3 benefits) → How it works (3 steps) → Features/benefits (3-6, benefit-oriented) → Testimonials (2-3 with results) → Final CTA with urgency/guarantee.
 
-**Landing Page Copy Structure:**
-1. Headline: Single clear promise
-2. Subhead: Supporting evidence or context
-3. Hero CTA: Above the fold, high contrast
-4. Problem: 2-3 sentences of pain amplification
-5. Solution: How this offer fixes the problem
-6. Benefits: 3-5 bullet points (outcomes, not features)
-7. Social proof: Testimonials, results, logos
-8. Objection handling: FAQ or guarantee section
-9. Final CTA: Urgency-driven repeat of the offer
+**Landing Page:** Headline (single promise) → Subhead → Hero CTA (above fold) → Pain amplification → Solution → Benefits (3-5 outcome bullets) → Social proof → Objection handling (FAQ/guarantee) → Final CTA with urgency.
 
-**Pricing Page Copy Structure:**
-1. Headline: Frame the investment, not the cost ("Choose your growth plan")
-2. Plan names: Aspirational or audience-based, not "Basic/Pro/Enterprise"
-3. Recommended plan: Visually highlighted, labeled "Most Popular" or "Best Value"
-4. Feature descriptions: Benefit-oriented, not feature lists
-5. Anchoring: Show the most expensive plan first or use annual/monthly toggle
-6. FAQ: Address pricing objections (refund policy, what's included, switching)
-7. Guarantee: Risk reversal (free trial, money-back, cancel anytime)
+**Pricing Page:** Frame investment not cost → Aspirational plan names → Highlight recommended plan → Benefit-oriented feature descriptions → Price anchoring → FAQ addressing objections → Risk reversal guarantee.
 
-**About Page Copy Structure:**
-1. Mission statement: Why this company exists (not what it does)
-2. Origin story: The founder's journey from problem to solution
-3. Values: 3-5 values with real examples, not generic platitudes
-4. Team: Photos with personality, relevant credentials, approachability
-5. Social proof: Press mentions, awards, milestones
-6. CTA: Connect the mission to the reader's journey
+**About Page:** Mission (why, not what) → Origin story → Values (3-5 with real examples) → Team with personality → Social proof (press, awards) → CTA linking mission to reader.
 
-**Product Page Copy Structure (E-commerce):**
-1. Product title: Descriptive and benefit-oriented
-2. Price: Clear, with any savings highlighted
-3. Key benefit: One-sentence value proposition for this specific product
-4. Description: 3-5 benefit-driven paragraphs
-5. Specifications: Clean, scannable table
-6. Reviews: Star rating + written reviews with photos
-7. Cross-sells: "Frequently bought together" or "You might also like"
+**Product Page (E-commerce):** Benefit-oriented title → Clear price with savings → One-sentence value prop → 3-5 benefit-driven paragraphs → Scannable spec table → Reviews with photos → Cross-sells.
 
-**Feature Page Copy Structure (SaaS):**
-1. Feature name: Clear and descriptive
-2. Problem it solves: Start with the pain point, not the feature
-3. How it works: Visual + 2-3 step explanation
-4. Use cases: 2-3 specific scenarios where this feature shines
-5. Comparison: How this is different from alternatives
-6. CTA: "Try [feature] free" or "See it in action"
+**Feature Page (SaaS):** Clear feature name → Problem it solves first → How it works (2-3 steps) → Use cases (2-3 scenarios) → Comparison to alternatives → Specific CTA.
 
 ### 3.2 CTA Optimization
 
@@ -215,13 +177,6 @@ Analyze every CTA on the page:
 - Is there a CTA after each major content section? (Recommended)
 - Is there a sticky/floating CTA on long pages? (Recommended for long-form)
 - Is the CTA repeated at the bottom? (Required)
-
-**CTA Color Psychology:**
-- Green: Growth, go, positive action (good for free trials)
-- Orange: Urgency, enthusiasm, confidence (good for limited offers)
-- Blue: Trust, security, calm (good for financial/enterprise)
-- Red: Urgency, excitement, passion (use sparingly)
-- The CTA color should contrast with the page background and surrounding elements
 
 ### 3.3 Before/After Examples
 
