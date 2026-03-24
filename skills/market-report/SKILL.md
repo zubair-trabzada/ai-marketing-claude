@@ -1,10 +1,12 @@
+---
+name: market-report
+description: "Compile marketing audit and analysis data into a client-ready Markdown report with scorecard, category deep-dives, recommendations, and prioritized action plan. Use when the user requests a full marketing report, performance report, client report, marketing analysis summary, or has completed one or more audit skills and wants a compiled assessment document."
+---
+
 # Marketing Report Generator (Markdown Format)
 
-## Skill Purpose
-Generate a comprehensive, professionally formatted marketing report in Markdown. This skill compiles data from all previous audit and analysis results into a single, client-ready document with scores, findings, recommendations, and a prioritized action plan with revenue impact estimates.
-
 ## When to Use
-- User wants a full marketing report for a client or their own business
+- User wants a full marketing report, performance report, or marketing analysis for a client or their own business
 - User has completed one or more audit skills and wants a compiled report
 - User asks for a marketing assessment, scorecard, or analysis document
 - Triggered by `/market report` or `/market report <domain>`
@@ -54,7 +56,7 @@ Evaluate based on SEO audit findings.
 |---|---|---|
 | Title tags & meta descriptions | 15 | Optimized = 15, Present = 10, Partial = 5, Missing = 0 |
 | Header hierarchy (H1-H6) | 10 | Proper = 10, Mostly = 7, Needs work = 3, Missing = 0 |
-| Content quality (E-E-A-T) | 25 | Excellent = 25, Good = 17, Average = 10, Poor = 3 |
+| Content quality | 25 | Excellent = 25, Good = 17, Average = 10, Poor = 3 |
 | Technical SEO | 20 | No issues = 20, Minor issues = 13, Major issues = 7, Critical = 0 |
 | Internal linking | 15 | Strategic = 15, Present = 10, Minimal = 5, None = 0 |
 | Schema markup | 15 | Comprehensive = 15, Basic = 10, Minimal = 5, None = 0 |
@@ -108,14 +110,7 @@ Evaluate based on ad account audit (if applicable).
 Overall Score = (Website * 0.25) + (SEO * 0.20) + (Content * 0.15) + (Social * 0.15) + (Email * 0.15) + (Paid * 0.10)
 ```
 
-**Score Interpretation:**
-| Score Range | Rating | Meaning |
-|---|---|---|
-| 85-100 | Excellent | Marketing is a competitive advantage. Optimize and scale. |
-| 70-84 | Good | Solid foundation with clear improvement opportunities. |
-| 55-69 | Average | Functional but leaving significant growth on the table. |
-| 40-54 | Below Average | Multiple areas need attention. Significant opportunity cost. |
-| 0-39 | Critical | Marketing is actively hurting growth. Immediate action required. |
+**Score Interpretation:** 85-100 Excellent, 70-84 Good, 55-69 Average, 40-54 Below Average, 0-39 Critical.
 
 ### Step 3: Write Category Deep-Dives
 
@@ -128,19 +123,7 @@ For each of the 6 categories, provide:
 5. **Recommendations** -- Specific, actionable improvements ranked by impact
 6. **Revenue Impact Estimate** -- Estimated financial impact of implementing recommendations
 
-**Revenue Impact Estimation Framework:**
-```
-Impact = (Estimated traffic change * Conversion rate change * Average deal value) * Confidence factor
-
-Example:
-- Current monthly traffic: 10,000
-- Recommended SEO improvements could increase traffic 30%: +3,000 visits
-- Current conversion rate: 2%, CRO could improve to 3%: +1% = +130 conversions
-- Average deal value: $500
-- Estimated monthly revenue impact: $65,000
-- Confidence factor (conservative): 0.5
-- Conservative estimate: $32,500/month additional revenue
-```
+**Revenue Impact Estimation:** Calculate as `(Estimated traffic change * Conversion rate change * Average deal value) * Confidence factor`. Apply a conservative confidence factor (0.5) for all estimates.
 
 ### Step 4: Competitor Comparison Summary
 If competitor data is available from `/market competitors`, include:
@@ -249,10 +232,6 @@ Include methodology notes so the client understands how scores were derived:
 - List any tools or scripts used in the analysis
 - Reference to scripts/analyze_page.py if used
 
-**Glossary:**
-- Define marketing terms that a non-marketer client may not know
-- Keep it relevant to terms used in the report
-
 ## Output Format
 
 Generate a file called `MARKETING-REPORT.md` with:
@@ -357,7 +336,6 @@ Generate a file called `MARKETING-REPORT.md` with:
 ## Appendix
 ### Methodology
 ### Tools Used
-### Glossary
 ### Data Sources
 ```
 

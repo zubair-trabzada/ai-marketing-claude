@@ -1,42 +1,25 @@
+---
+name: market-ads
+description: "Advertising engine that generates complete ad campaigns for Facebook Ads, Google Ads, LinkedIn Ads, TikTok Ads, and Twitter/X Ads. Use when creating ad campaigns, writing ad copy, planning audience targeting, setting ad budgets, building retargeting funnels, or generating creative briefs for any paid advertising platform."
+---
+
 # Ad Creative & Copy Generation
 
-You are the advertising engine for `/market ads <url>`. You generate complete ad campaigns across platforms with full copy variations, audience targeting strategies, budget recommendations, and creative specifications. Every ad is ready for production or handoff to a media buyer.
+You are the advertising engine for `/market ads <url>`. Generate production-ready ad campaigns across Google, Meta, LinkedIn, TikTok, and Twitter/X with copy variations, audience targeting, budget allocation, and creative specs. Output everything to AD-CAMPAIGNS.md.
 
-## When This Skill Is Invoked
-
-The user runs `/market ads <url>`. Fetch the target site to understand the business, product, audience, and value propositions. Generate complete campaign structures across relevant platforms. Output everything to AD-CAMPAIGNS.md.
-
----
+Fetch the target URL first to extract: product/service, price point, target audience, USP, conversion action, social proof, objections, and competitors. These inform all campaign messaging.
 
 ## Phase 1: Campaign Foundation
 
-### 1.1 Business and Offer Analysis
+Map the business goal to campaign objectives:
 
-Before writing any ads, establish:
-
-| Context Element | Source | Purpose |
-|----------------|--------|---------|
-| **Product/Service** | URL analysis | Core of all ad messaging |
-| **Price point** | Pricing page | Determines funnel depth and ad strategy |
-| **Target audience** | Site copy, user input | Audience targeting parameters |
-| **Unique selling proposition** | Homepage, features | Primary ad differentiation |
-| **Conversion action** | CTAs on site | What the ad should drive toward |
-| **Social proof** | Testimonials, numbers | Trust elements for ad copy |
-| **Objections** | FAQ, competitor analysis | Objection-handling ad angles |
-| **Competitors** | Industry knowledge | Competitive positioning angles |
-
-### 1.2 Campaign Objective Mapping
-
-Map the business goal to the right campaign objective:
-
-| Business Goal | Campaign Objective | Primary Platform | Ad Format |
+| Business Goal | Campaign Objective | Primary Platforms | Ad Format |
 |--------------|-------------------|-----------------|-----------|
 | Brand awareness | Reach / Impressions | Meta, YouTube, TikTok | Video, Display |
 | Lead generation | Lead Gen / Conversions | Meta, LinkedIn, Google | Lead forms, Landing pages |
 | Trial signups | Conversions | Google, Meta, LinkedIn | Search, Landing pages |
 | E-commerce sales | Sales / ROAS | Google Shopping, Meta, TikTok | Shopping, Carousel |
 | App installs | App Install | Meta, Google, TikTok | App install ads |
-| Event registration | Conversions | Meta, LinkedIn | Event ads, Landing pages |
 | Content promotion | Engagement / Traffic | Meta, Twitter, LinkedIn | Boosted posts, Video |
 
 ---
@@ -103,47 +86,17 @@ Generate at least:
 
 **Ad Copy Angles (generate 5-10 per campaign):**
 
-```
-Angle 1: PAIN POINT
-  "Tired of [specific frustration]? [Product] eliminates [pain] so you can
-   focus on [desired outcome]."
-
-Angle 2: SOCIAL PROOF
-  "[Number] [audience] already use [product] to [benefit].
-   See why [specific customer] calls it '[quote].'"
-
-Angle 3: BEFORE/AFTER
-  "Before [product]: [painful state]
-   After [product]: [desired state]
-   The difference? [Unique mechanism]."
-
-Angle 4: OBJECTION HANDLING
-  "Think [product type] is [common objection]? [Counter with evidence].
-   Try it free for [trial period] — no [risk]."
-
-Angle 5: URGENCY/SCARCITY
-  "[Limited offer detail]. [Number] spots left this month.
-   [Product] helps you [benefit] — lock in [offer] before [deadline]."
-
-Angle 6: CURIOSITY
-  "The [industry] secret that [specific result] (most [audience] miss this)."
-
-Angle 7: DIRECT BENEFIT
-  "Get [specific outcome] in [timeframe] with [product].
-   No [common objection]. Just [benefit]."
-
-Angle 8: COMPARISON
-  "Still using [competitor/old way]? [Product] gives you [advantage]
-   at [fraction/price benefit]."
-
-Angle 9: TESTIMONIAL
-  "'[Specific quote from customer about specific result]'
-   — [Customer name], [title/company]"
-
-Angle 10: HOW-TO
-  "How to [achieve desired outcome] in 3 steps:
-   1. [Step using product]  2. [Step]  3. [Result]"
-```
+Use these angle categories, adapting tone and length per placement:
+- **Pain point** — Lead with frustration, resolve with product
+- **Social proof** — Numbers, customer quotes, trust signals
+- **Before/after** — Contrast painful state vs desired outcome
+- **Objection handling** — Name the objection, counter with evidence + risk-free offer
+- **Urgency/scarcity** — Limited availability, deadline, locked-in pricing
+- **Curiosity** — Tease a secret or counterintuitive insight
+- **Direct benefit** — Specific outcome + timeframe, no fluff
+- **Comparison** — Old way vs product advantage
+- **Testimonial** — Verbatim customer quote with attribution
+- **How-to** — 3-step format showing product in action
 
 ### 2.3 LinkedIn Ads
 
@@ -296,29 +249,11 @@ Stage 3 Ads (Conversion):
 | Local Business | 50% | 35% | 0% | 5% | 10% |
 | Creator/Course | 10% | 40% | 10% | 30% | 10% |
 
-**By Funnel Stage:**
-- Awareness: 40% (audience building)
-- Consideration: 35% (retargeting warm leads)
-- Conversion: 25% (driving purchases/signups)
+Split by funnel stage: ~40% awareness, ~35% consideration, ~25% conversion.
 
-### 4.2 ROAS Benchmarks by Industry
+### 4.2 Performance Benchmarks
 
-| Industry | Acceptable ROAS | Good ROAS | Excellent ROAS |
-|----------|----------------|-----------|----------------|
-| E-commerce | 2:1 | 4:1 | 8:1+ |
-| SaaS | 3:1 | 5:1 | 10:1+ |
-| Lead Gen | 2:1 (by lead value) | 4:1 | 7:1+ |
-| Courses | 3:1 | 6:1 | 10:1+ |
-| Local Services | 2:1 | 3:1 | 5:1+ |
-
-**CPA Benchmarks (approximate):**
-
-| Platform | B2B Lead | B2C Lead | E-commerce Purchase | SaaS Trial |
-|----------|----------|----------|-------------------|------------|
-| Google Search | $30-80 | $10-30 | $15-40 | $20-60 |
-| Meta | $20-60 | $5-20 | $10-30 | $15-45 |
-| LinkedIn | $50-150 | N/A | N/A | $40-100 |
-| TikTok | $15-40 | $3-15 | $8-25 | $10-35 |
+Provide ROAS and CPA targets appropriate to the business type, industry, and platform mix. Factor in typical ranges for each platform (e.g., LinkedIn tends higher CPA than Meta/TikTok for B2B leads). Include acceptable, good, and excellent tiers so the user can gauge campaign health.
 
 ### 4.3 Landing Page Alignment
 

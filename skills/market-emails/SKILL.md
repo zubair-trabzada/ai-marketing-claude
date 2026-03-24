@@ -1,3 +1,8 @@
+---
+name: market-emails
+description: "Use when creating email sequences, drip campaigns, newsletters, nurture sequences, or email automation flows. Generates complete ready-to-send email sequences with subject lines, body copy, preview text, timing cadence, and segmentation strategies based on proven frameworks like PAS, story-driven, and value-before-ask."
+---
+
 # Email Sequence Generation
 
 You are the email marketing engine for `/market emails <topic/url>`. You generate complete, ready-to-send email sequences with subject lines, body copy, timing, and segmentation strategies. Every sequence is built on proven email frameworks and calibrated to industry benchmarks.
@@ -14,15 +19,15 @@ The user runs `/market emails <topic/url>`. If a URL is provided, fetch the site
 
 Before writing any emails, establish:
 
-| Context Element | How to Determine | Why It Matters |
-|----------------|-----------------|----------------|
-| **Business type** | Fetch URL or ask user | Determines sequence type and tone |
-| **Target audience** | Infer from site copy or ask | Shapes language, pain points, examples |
-| **Product/service** | Fetch product/pricing pages | Drives value propositions in emails |
-| **Price point** | Check pricing page | Determines sequence length (higher price = longer nurture) |
-| **Primary CTA** | Identify main conversion action | Every email builds toward this |
-| **Lead magnet** | Check for download offers, free trials | Determines welcome sequence entry point |
-| **Voice and tone** | Analyze existing copy | Emails must match brand voice |
+| Context Element | How to Determine |
+|----------------|-----------------|
+| **Business type** | Fetch URL or ask user |
+| **Target audience** | Infer from site copy or ask |
+| **Product/service** | Fetch product/pricing pages |
+| **Price point** | Check pricing page |
+| **Primary CTA** | Identify main conversion action |
+| **Lead magnet** | Check for download offers, free trials |
+| **Voice and tone** | Analyze existing copy |
 
 ### 1.2 Sequence Type Selection
 
@@ -44,16 +49,7 @@ Generate at least 2 sequence types unless the user specifies one.
 
 ## Phase 2: Email Frameworks
 
-### 2.1 Core Email Philosophy: One Email, One Job
-
-Every email must have exactly ONE primary purpose:
-- ONE main idea or story
-- ONE call-to-action (secondary CTA optional but de-emphasized)
-- ONE desired reader action
-
-Never combine multiple asks in a single email. Violating this rule is the number one cause of low click-through rates.
-
-### 2.2 Email Structure Frameworks
+### 2.1 Email Structure Frameworks
 
 **Value Before Ask:**
 ```
@@ -86,7 +82,7 @@ CTA: "Start your free trial and see the difference in 24 hours."
 
 Use this for launch emails and cart abandonment.
 
-### 2.3 Subject Line Optimization
+### 2.2 Subject Line Optimization
 
 **Subject Line Formulas:**
 
@@ -112,7 +108,7 @@ Use this for launch emails and cart abandonment.
 - Test emoji usage: one emoji can increase open rates 2-5%, but overuse decreases them
 - Preview text (preheader) is as important as the subject line — always write both
 
-### 2.4 Send Timing and Cadence
+### 2.3 Send Timing and Cadence
 
 **Recommended Cadence by Sequence Type:**
 
@@ -282,40 +278,11 @@ For each sequence, suggest tests:
 
 ### 5.1 Industry Benchmarks
 
-Include relevant benchmarks in the output:
+Include relevant industry benchmarks for open rate, click rate, and conversion rate in the output, calibrated to the user's specific industry and business type.
 
-| Industry | Avg Open Rate | Avg Click Rate | Avg Conversion Rate |
-|----------|-------------|----------------|-------------------|
-| SaaS/Software | 20-25% | 2-3% | 1-2% |
-| E-commerce | 15-20% | 2-3% | 0.5-1.5% |
-| Agency/Services | 18-22% | 2-4% | 1-3% |
-| Education/Courses | 20-28% | 2-5% | 1-3% |
-| Health/Fitness | 18-22% | 2-3% | 0.5-1.5% |
-| Finance/Fintech | 20-25% | 2-4% | 1-2% |
-| Media/Publishing | 20-25% | 3-5% | 0.5-1% |
+### 5.2 Compliance
 
-### 5.2 Compliance Notes
-
-Include a compliance section in every output:
-
-**CAN-SPAM (US):**
-- Physical mailing address required in every email
-- Clear unsubscribe link required (must work within 10 business days)
-- "From" name and email must be accurate
-- Subject line must not be deceptive
-
-**GDPR (EU):**
-- Requires explicit opt-in consent (no pre-checked boxes)
-- Must document consent (when, how, what they agreed to)
-- Right to be forgotten — must delete on request
-- Data processing agreement needed with ESP
-
-**CASL (Canada):**
-- Express consent required for commercial messages
-- Implied consent allowed for existing business relationships (24 months)
-- Sender identification required
-
-**Note:** Always recommend the user verify compliance with their legal counsel.
+Include a compliance section in every output covering CAN-SPAM, GDPR, and CASL requirements as applicable. Always recommend the user verify compliance with their legal counsel.
 
 ---
 

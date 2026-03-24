@@ -1,18 +1,16 @@
+---
+name: market-landing
+description: "Landing page CRO analysis engine. Use when a user shares a landing page URL for conversion optimization, requests a landing page review or conversion audit, or wants to improve conversions on signup, lead capture, or purchase flows. Analyzes headlines, evaluates CTAs, assesses form friction, scores social proof, audits mobile responsiveness, and generates prioritized A/B test recommendations with revenue-impact estimates."
+---
+
 # Landing Page CRO Analysis
 
-## Skill Purpose
-Perform a comprehensive Conversion Rate Optimization (CRO) analysis on any landing page. This skill produces a section-by-section teardown with prioritized, actionable fixes that directly impact conversion rates.
-
-## When to Use
-- User provides a landing page URL and asks for conversion optimization
-- User asks for landing page feedback, review, or audit
-- User wants to improve signup, lead capture, or purchase rates
-- Triggered by `/market landing <url>` or `/market cro <url>`
+Use when a user provides a landing page URL and asks for conversion optimization, landing page review, conversion audit, or wants to improve signup, lead capture, or purchase rates. Triggered by `/market landing <url>` or `/market cro <url>`.
 
 ## How to Execute
 
 ### Step 1: Identify the Page Type
-Determine which type of landing page you are analyzing. This affects benchmark expectations and scoring weights.
+Determine which landing page type to set benchmark expectations and scoring weights.
 
 | Page Type | Primary Goal | Good CR | Great CR |
 |---|---|---|---|
@@ -44,12 +42,7 @@ The first screen a visitor sees. This is where 80% of conversion decisions begin
 - [ ] Page loads in under 3 seconds
 - [ ] No navigation menu competing with the CTA (for dedicated landing pages)
 
-**Scoring Criteria:**
-- 9-10: Headline is benefit-driven, specific, and compelling. CTA is clear and contrasting. Visual supports the message. Trust indicators present.
-- 7-8: Strong headline and CTA but missing one element (trust badges, supporting visual, or specificity).
-- 5-6: Generic headline or weak CTA. Missing multiple above-the-fold elements.
-- 3-4: Headline is feature-focused or vague. CTA is below the fold or unclear.
-- 1-2: No clear headline or CTA. Visitor cannot understand the offer within 5 seconds.
+**Scoring guide:** 9-10 = benefit-driven headline + clear contrasting CTA + supporting visual + trust indicators. Deduct points for: generic/feature-focused headline, CTA below fold, missing trust badges, stock imagery, slow load.
 
 #### Section 2: Value Proposition (Weight: 20%)
 How clearly the page communicates WHY someone should convert.
@@ -71,16 +64,7 @@ How clearly the page communicates WHY someone should convert.
 #### Section 3: Social Proof (Weight: 15%)
 Evidence that others trust and benefit from this product/service.
 
-**Types of Social Proof (ranked by persuasion power):**
-1. Revenue/results metrics ("$2.4B processed", "500K users")
-2. Named customer testimonials with photos, titles, and companies
-3. Recognizable client logos
-4. Case studies with specific results
-5. Star ratings and review counts
-6. Media mentions ("As seen in...")
-7. Certifications and awards
-8. User-generated content
-9. Social media follower counts
+**Social proof types (strongest first):** Revenue/results metrics > named testimonials with photos > client logos > case studies > star ratings > media mentions > certifications > UGC > follower counts.
 
 **Checklist:**
 - [ ] At least 2 types of social proof present
@@ -141,10 +125,7 @@ The conversion mechanism itself.
 - [ ] Button text uses first person ("Start MY trial" vs "Start YOUR trial")
 - [ ] CTA is specific to the offer (not generic)
 
-**CTA Copy Scoring:**
-- Weak: "Submit", "Click Here", "Learn More"
-- Medium: "Sign Up", "Get Started", "Download Now"
-- Strong: "Start My Free Trial", "Get My Custom Report", "Claim Your Discount"
+**CTA copy strength:** Weak = "Submit", "Click Here" | Medium = "Sign Up", "Get Started" | Strong = "Start My Free Trial", "Get My Custom Report"
 
 #### Section 7: Footer and Secondary Elements (Weight: 5%)
 The bottom of the page and supporting elements.
@@ -196,23 +177,11 @@ Mobile accounts for 60%+ of web traffic. Check:
 - [ ] Sticky CTA bar on scroll (if applicable)
 
 ### Step 6: Page Speed Impact Assessment
-Reference these conversion impact benchmarks:
-
-| Load Time | Conversion Impact |
-|---|---|
-| 0-2 seconds | Baseline (optimal) |
-| 2-3 seconds | -7% conversion rate |
-| 3-5 seconds | -20% conversion rate |
-| 5-8 seconds | -35% conversion rate |
-| 8+ seconds | -50%+ conversion rate |
-
-Check for common speed issues:
-- Unoptimized images (use WebP, lazy loading)
-- Render-blocking JavaScript
-- Missing browser caching
-- No CDN
+Conversion drops roughly 7% at 2-3s, 20% at 3-5s, 35% at 5-8s, and 50%+ beyond 8s. Flag these common issues:
+- Unoptimized images (recommend WebP, lazy loading)
+- Render-blocking JS, unminified CSS/JS
+- Missing browser caching or CDN
 - Excessive third-party scripts
-- Unminified CSS/JS
 
 ### Step 7: Generate A/B Test Recommendations
 Format each test as a hypothesis:
@@ -220,17 +189,7 @@ Format each test as a hypothesis:
 **Template:**
 "If we [CHANGE], then [METRIC] will [IMPROVE/INCREASE] because [REASON]."
 
-**Example tests to consider:**
-1. Headline variations (benefit-focused vs outcome-focused)
-2. CTA button color and text
-3. Social proof placement (above vs below fold)
-4. Form field count (reduce by 1-2 fields)
-5. Hero image vs hero video
-6. Long-form vs short-form page
-7. Adding urgency elements (countdown, limited spots)
-8. Price anchoring and presentation
-9. Testimonial format (text vs video)
-10. Adding a chatbot or live chat widget
+**Common test areas:** headline wording, CTA color/text, social proof placement, form field count, hero image vs video, page length, urgency elements, price anchoring, testimonial format, live chat widget.
 
 ### Step 8: Heat Map Interpretation Guidance
 Even without actual heat map data, provide guidance on:
@@ -320,9 +279,8 @@ Generate a file called `LANDING-CRO.md` in the project root or output directory 
 ```
 
 ## Key Principles
-- Always tie recommendations to REVENUE IMPACT. Don't just say "change the button color" -- say "changing the CTA button to a contrasting color typically increases clicks 15-30%, which at your current traffic could mean X more conversions per month."
-- Prioritize fixes by effort-to-impact ratio. Quick wins first.
-- Be specific. "Improve your headline" is useless. "Change your headline from 'Welcome to Our Platform' to 'Cut Your Reporting Time by 75% -- Automated Analytics for Growth Teams' because it adds specificity, a quantified benefit, and targets a specific audience" is actionable.
-- Reference industry benchmarks so the client understands where they stand.
-- If you have access to the page via browser tools, take screenshots and reference specific elements.
-- If the user has run `/market audit` previously, incorporate those findings into the CRO analysis for a more complete picture.
+- **Tie every recommendation to revenue impact** -- e.g., "contrasting CTA color typically lifts clicks 15-30%, meaning ~X more conversions/month at your traffic."
+- **Prioritize by effort-to-impact ratio.** Quick wins first.
+- **Be specific and actionable** -- rewrite the actual headline, don't just say "improve it."
+- **Reference industry benchmarks** so the client sees where they stand.
+- If browser access is available, reference specific page elements. If `/market audit` was run previously, incorporate those findings.
