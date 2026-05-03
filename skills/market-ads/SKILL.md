@@ -91,7 +91,7 @@ Generate at least:
 | Format | Placement | Image Spec | Video Spec | Text Limits |
 |--------|-----------|-----------|-----------|-------------|
 | Single Image | Feed, Stories, Reels | 1080x1080 (feed), 1080x1920 (stories) | N/A | Primary: 125 chars, Headline: 40, Description: 30 |
-| Video | Feed, Stories, Reels | N/A | 1080x1080 or 1080x1920, <240 min | Same as image |
+| Video | Feed, Stories, Reels | Thumbnail supported (1080x1080 or 1080x1920) | 1080x1080 or 1080x1920, <240 min | Same as image |
 | Carousel | Feed, Stories | 1080x1080 per card, 2-10 cards | 1080x1080, <240 min | Same as image |
 | Collection | Feed | 1200x628 cover | 1200x628 cover | Same as image |
 
@@ -99,7 +99,7 @@ Generate at least:
 - Primary text (3 variations: short, medium, long)
 - Headline (5 variations)
 - Description (3 variations)
-- CTA button (select from: Learn More, Sign Up, Shop Now, Get Offer, Book Now, Download, Contact Us)
+- CTA button (select from: Learn More, Sign Up, Shop Now, Get Offer, Book Now, Download, Contact Us, Get Directions)
 
 **Ad Copy Angles (generate 5-10 per campaign):**
 
