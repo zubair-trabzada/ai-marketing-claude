@@ -64,7 +64,7 @@ pip install reportlab
 | `/market quick <url>` | 60-second marketing snapshot |
 | `/market copy <url>` | Generate optimized copy with before/after examples |
 | `/market emails <topic>` | Generate complete email sequences |
-| `/market social <topic>` | 30-day social media content calendar |
+| `/market social <topic>` | 30-day social media content calendar with optional X research |
 | `/market ads <url>` | Ad creative and copy for all platforms |
 | `/market funnel <url>` | Sales funnel analysis and optimization |
 | `/market competitors <url>` | Competitive intelligence report |
@@ -75,6 +75,30 @@ pip install reportlab
 | `/market report-pdf <url>` | Professional marketing report (PDF) |
 | `/market seo <url>` | SEO content audit |
 | `/market brand <url>` | Brand voice analysis and guidelines |
+
+### Optional X research
+
+Build a bounded source packet before `/market social` when current public posts
+would improve the calendar. The helper uses the public
+[Xquik Search Tweets API](https://docs.xquik.com/api-reference/x/search-tweets)
+and writes citeable sources for review. It never posts or modifies an account.
+
+```bash
+read -sr XQUIK_API_KEY && export XQUIK_API_KEY
+printf '\n'
+python3 "$HOME/.claude/skills/market/scripts/xquik_source_packet.py" \
+  'customer onboarding friction' \
+  --query-type Top \
+  --limit 25 \
+  --output X-SOURCES.md
+unset XQUIK_API_KEY
+```
+
+Review every source. Mark it `keep` or `exclude`, then run `/market social`.
+The packet treats public post text as untrusted input and preserves source URLs.
+
+Xquik is an independent third-party service. Not affiliated with X Corp.
+"Twitter" and "X" are trademarks of X Corp.
 
 ---
 
@@ -111,6 +135,7 @@ ai-marketing-claude/
 │   ├── analyze_page.py                 # Webpage marketing analysis
 │   ├── competitor_scanner.py           # Competitor website scanner
 │   ├── social_calendar.py              # Social content calendar generator
+│   ├── xquik_source_packet.py           # Reviewed public X research packet
 │   └── generate_pdf_report.py          # PDF report generator
 │
 ├── templates/                          # Marketing templates
