@@ -54,6 +54,22 @@ cd ai-marketing-claude
 pip install reportlab
 ```
 
+### Windows Notes
+
+`install.sh` and the one-command `curl | bash` installer require a bash shell (Git Bash or WSL) — they won't run directly in PowerShell or `cmd.exe`. If you only have PowerShell available, copy the skill/agent files manually instead:
+
+```powershell
+Copy-Item -Recurse market, skills\*, agents\*, market\scripts, market\templates $env:USERPROFILE\.claude\skills, $env:USERPROFILE\.claude\agents
+```
+
+Also, on Windows the `python3` command used by `market-report-pdf`'s scripts often resolves to the Microsoft Store's Python stub instead of a real interpreter, even after installing Python from python.org. If `python3 -c "import reportlab"` fails with a Store-install prompt, create a shim pointing at your real Python install, e.g.:
+
+```powershell
+Copy-Item "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe" "$env:LOCALAPPDATA\Programs\Python\Python312\python3.exe"
+```
+
+then make sure that Python directory comes before `AppData\Local\Microsoft\WindowsApps` on your `PATH`.
+
 ---
 
 ## Commands
