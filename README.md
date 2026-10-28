@@ -54,6 +54,14 @@ cd ai-marketing-claude
 pip install reportlab
 ```
 
+### Optional: Live Ad and Analytics Data
+
+Connect the [Coupler.io MCP server](https://github.com/coupler-io/coupler-io-mcp-server) to use real Google Ads, Meta Ads and GA4 numbers in your reports (requires a Coupler.io account):
+
+```bash
+claude mcp add coupler-io --transport http https://mcp.coupler.io/mcp
+```
+
 ---
 
 ## Commands
